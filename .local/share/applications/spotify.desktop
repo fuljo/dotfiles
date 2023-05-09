@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Audio;Music;Player;AudioVideo;
+Comment[en_US]=
+Comment=
+Exec=spotify --force-device-scale-factor=1.25  %U
+GenericName[en_US]=Music Player
+GenericName=Music Player
+Icon=spotify-client
+MimeType=
+Name[en_US]=Spotify
+Name=Spotify
+Path=
+StartupNotify=true
+StartupWMClass=spotify
+Terminal=false
+TerminalOptions=
+TryExec=spotify
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
