@@ -1,0 +1,31 @@
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun,window,ssh,power-menu:rofi-power-menu,vscode-recent";
+    show-icons:                 true;
+    icon-theme:                 "Papirus-Dark";
+    drun {
+        display-name: "";
+    }
+    run {
+        display-name: "";
+    }
+    ssh {
+        display-name: "";
+    }
+    filebrowser {
+        display-name: "";
+    }
+    window {
+        display-name: "";
+    }
+    power-menu {
+        display-name: "";
+    }
+    vscode-recent {
+        display-name: "﬏";
+    }
+	drun-display-format:        "{name}";
+	window-format:              "{w} | {c} | {t}";
+}
+
+@theme "fuljo"
