@@ -1,0 +1,8 @@
+# SSH
+export SSH_ASKPASS='/usr/bin/ksshaskpass'
+export SSH_ASKPASS_REQUIRE=prefer
+
+if [[ $XDG_CURRENT_DESKTOP != 'KDE' ]]; then
+	export QT_QPA_PLATFORMTHEME='qt5ct'
+fi
+
