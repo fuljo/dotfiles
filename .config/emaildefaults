@@ -1,0 +1,7 @@
+[Defaults]
+Profile=Default
+
+[PROFILE_Default]
+EmailClient=/usr/bin/google-chrome-stable
+ServerType=
+TerminalClient=false
