@@ -10,5 +10,3 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-#include ".Xresources.d/catppuccin/mocha.Xresources"
-
