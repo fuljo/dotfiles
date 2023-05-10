@@ -1,0 +1,26 @@
+[user]
+	name = Alessandro Fulgini
+	email = fuljo97@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[init]
+	defaultBranch = main
+[alias]
+	# one-line log
+    	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	# graph log
+	lg = log --all --graph --oneline --abbrev-commit --decorate
+	
+	a = add -u
+	c = commit
+	m = commit --amend
+
+	s = status
+	co = checkout
+
+	pt = push --tag
+	pc = push
+
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
