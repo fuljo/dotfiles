@@ -25,6 +25,12 @@ dunst &
 # Redshift gamma correction
 gammastep &
 
+# PipeWire sound effects
+easyeffects --gapplication-service &
+
+# PulseAudio Systray
+pasystray &
+
 # Clipboard manager
 case "$XDG_SESSION_TYPE" in
     x11)

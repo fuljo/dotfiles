@@ -288,9 +288,9 @@ keys += [
 # Special keys
 keys += [
     # Audio Volume
-    Key([], "XF86AudioMute", lazy.spawn("volume.sh mute")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("volume.sh down 2")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("volume.sh up 2")),
+    Key([], "XF86AudioMute", lazy.spawn("volume.sh toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("volume.sh 2%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("volume.sh 2%+")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
     Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
@@ -328,10 +328,11 @@ groups = [
         "DOC",
         label="\uf044",
         layout="max",
-        matches=[Match(wm_class=["okular", "Zathura"])],
+        matches=[Match(wm_class=["okular", "Zathura", "libreoffice", "libreoffice-writer", "libreoffice-calc", "libreoffice-impress"])],
     ),
     Group(
-        "SYS", label="\uf07b", layout="columns", matches=[Match(wm_class=["dolphin"])]
+        "SYS", label="\uf07b", layout="columns", matches=[Match(wm_class=[
+            "dolphin", "pavucontrol", "easyeffects", "systemsettings"])]
     ),
     Group(
         "CHAT",
@@ -343,8 +344,8 @@ groups = [
                     "discord",
                     "telegram-desktop",
                     "web.whatsapp.com",
-                    # PWA for Teams
-                    "crx_cifhbcnohmdccbgoicgdjpfamggdegmo",
+                    "crx_cifhbcnohmdccbgoicgdjpfamggdegmo", # PWA for Teams
+                    "crx_kjgfgldnnfoeklkmfkjfagphfepbbdan", # PWA for Meet
                 ]
             )
         ],
@@ -469,10 +470,10 @@ def make_icon(text, foreground, **kwargs):
 def make_tray(**kwargs):
     match qtile.core.name:
         case "x11":
-            logger.error("Using X11 tray")
+            logger.info("Using X11 tray")
             return widget.Systray(**kwargs)
         case "wayland":
-            logger.error("Using Wayland tray")
+            logger.info("Using Wayland tray")
             return widget.StatusNotifier(**kwargs)
 
 
