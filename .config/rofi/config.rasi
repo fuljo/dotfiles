@@ -1,6 +1,6 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,window,ssh,power-menu:rofi-power-menu,vscode-recent";
+	modi:                       "drun,window,ssh,power-menu:rofi-power-menu,vscode-recent,audio-switcher:rofi-switch-sink.sh";
     show-icons:                 true;
     icon-theme:                 "Papirus-Dark";
     drun {
@@ -23,6 +23,9 @@ configuration {
     }
     vscode-recent {
         display-name: "﬏";
+    }
+    audio-switcher {
+        display-name: "󱄠";
     }
 	drun-display-format:        "{name}";
 	window-format:              "{w} | {c} | {t}";
