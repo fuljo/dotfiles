@@ -29,10 +29,10 @@ source /usr/share/fzf/completion.zsh
 # Aliases #
 ###########
 
-alias ls="exa -lah --git"
+alias ls="exa -lah --git --icons"
 alias cd="z"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mkdir='mkdir -pv'
-alias cp="xcp"
+
