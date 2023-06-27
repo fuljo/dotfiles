@@ -35,4 +35,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mkdir='mkdir -pv'
-
+alias youtube-dl='yt-dlp'
