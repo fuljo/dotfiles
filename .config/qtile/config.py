@@ -52,10 +52,11 @@ commands = {
     "launcher": "rofi -show drun",
     "window-switcher": "rofi -show window",
     "audio-switcher": "rofi -show audio-switcher",
+    "battery": f"{rofi_path}/applet_battery",
     "powermenu": "rofi -show power-menu",
     "vscode-recent": "rofi -show vscode-recent",
+    "emoji-selector": "rofi -show emoji -modi emoji",
     "network": f"{rofi_path}/applet_network",
-    "battery": f"{rofi_path}/applet_battery",
     "backlight": f"{rofi_path}/applet_backlight",
     "volume": f"{rofi_path}/applet_volume",
     "time": f"{rofi_path}/applet_time",
@@ -272,6 +273,7 @@ keys += [
         lazy.spawn(commands["clipboard-manager"]),
         desc="Open clipboard manager",
     ),
+    Key([mod], "period", lazy.spawn(commands["emoji-selector"]), desc="Launch emoji selector"),
     Key([mod], "Escape", lazy.spawn(commands["powermenu"]), desc="Launch power menu"),
 ]
 
@@ -688,6 +690,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(title="itunes.exe"),
+        Match(title="plasma-emojier"), # emoji selector
         # Match(func=lambda w: w.window.get_wm_transient_for()),
     ],
 )
