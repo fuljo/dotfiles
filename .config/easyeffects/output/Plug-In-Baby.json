@@ -1,0 +1,26 @@
+{
+    "output": {
+        "bass_loudness#0": {
+            "bypass": false,
+            "input-gain": 0.0,
+            "link": -9.1,
+            "loudness": -7.999999999999831,
+            "output": -6.0,
+            "output-gain": 0.0
+        },
+        "blocklist": [],
+        "filter#0": {
+            "bypass": true,
+            "frequency": 2000.0,
+            "inertia": 20.0,
+            "input-gain": 0.0,
+            "mode": "6dB/oct Bandpass",
+            "output-gain": 0.0,
+            "resonance": -3.0
+        },
+        "plugins_order": [
+            "filter#0",
+            "bass_loudness#0"
+        ]
+    }
+}
