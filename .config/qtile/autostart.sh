@@ -2,13 +2,16 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# Create default user directories
+xdg-user-dirs-update &
+
 # Monitor configuration
 case "$XDG_SESSION_TYPE" in
     x11)
         autorandr --change &
         ;;
     wayland)
-        # kanshi &
+        kanshi &
         ;;
 esac
 
@@ -20,7 +23,14 @@ case "$XDG_SESSION_TYPE" in
 esac
 
 # Notification manager
-dunst &
+case "$XDG_SESSION_TYPE" in
+    x11)
+        dunst &
+        ;;
+    wayland)
+        mako &
+        ;;
+esac
 
 # Redshift gamma correction
 gammastep &
@@ -41,23 +51,39 @@ case "$XDG_SESSION_TYPE" in
         ;;
 esac
 
+# Mounting daemon
+if [[ -x "$(command -v pcmanfm)" ]]; then
+    pcmanfm -d &
+fi
+
 # KDE Wallet
-/usr/lib/pam_kwallet_init &
+if [[ -x "/usr/lib/pam_kwallet_init" ]]; then
+    /usr/lib/pam_kwallet_init &
+fi
 
 # NetworkManger Applet
 nm-applet --indicator &
 
 # Manjaro Settings Manager notifier
-msm_kde_notifier &
+if [[ -x "$(command -v msm_kde_notifier)" ]]; then
+    msm_kde_notifier &
+fi
 
 # Manjaro tray
-matray --delay &
+if [[ -x "$(command -v matray)" ]]; then
+    matray --delay &
+fi
 
 # Solaar
 solaar --window=hide &
 
 # MPRIS controller
 playerctld daemon &
+
+# Power alert daemon
+if [[ -x "$(command -v poweralertd)" ]]; then
+    poweralertd -s -i "line power" &
+fi
 
 # Wallpaper
 wp_1="/mnt/d/Graphics/vincenttrinidad/bountea-hunter.jpg"
