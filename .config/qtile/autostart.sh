@@ -93,14 +93,14 @@ if [[ -x "$(command -v poweralertd)" ]]; then
 fi
 
 # Wallpaper
-wp_1="/mnt/d/Graphics/vincenttrinidad/bountea-hunter.jpg"
-wp_2="/mnt/d/Graphics/vincenttrinidad/the-great-starry-wave.jpg"
+wp_1="$HOME/Pictures/Wallpapers/bountea-hunter.jpg"
+wp_2="$HOME/Pictures/Wallpapers/the-great-starry-wave.jpg"
 case "$XDG_SESSION_TYPE" in
     x11)
-        feh --bg-max $wp_1 $wp_2 &
+        feh --bg-max "$wp_1" "$wp_2" &
         ;;
     wayland)
-        swaybg -i $wp_1 -m fit &
+        swaybg -i "$wp_1" -m fit &
         ;;
 esac
 
