@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-export PATH="$HOME/.local/bin:$PATH"
+# Set variables in the systemd user environment
+case "$XDG_SESSION_TYPE" in
+    wayland)
+        systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+        hash dbus-update-activation-environment 2>/dev/null && \
+        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+        ;;
+esac
 
 # Create default user directories
 xdg-user-dirs-update &
