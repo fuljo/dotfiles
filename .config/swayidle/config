@@ -1,0 +1,6 @@
+timeout 180 'light -G > /tmp/brightness && light -S 10' resume 'light -S $([ -f /tmp/brightness ] && cat /tmp/brightness || echo 100%)'
+timeout 240 'swaylock -f -c 000000'
+lock 'swaylock -f -c 000000'
+before-sleep 'playerctl pause'
+before-sleep 'swaylock -f -c 000000'
+idlehint 300
