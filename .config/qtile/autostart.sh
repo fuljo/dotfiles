@@ -42,6 +42,9 @@ esac
 # Redshift gamma correction
 gammastep &
 
+# Dark mode toggler
+darkman run &
+
 # PipeWire sound effects
 easyeffects --gapplication-service &
 
