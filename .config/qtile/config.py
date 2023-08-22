@@ -35,6 +35,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.backend.base import Window
+from libqtile.backend.wayland import InputConfig
 from libqtile.dgroups import simple_key_binder
 from libqtile.log_utils import logger
 
@@ -645,6 +646,8 @@ screens = [
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
+    Screen(
+    )
 ]
 
 # Drag floating layouts.
@@ -698,7 +701,9 @@ reconfigure_screens = True
 auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+wl_input_rules = {
+    "type:keyboard": InputConfig(kb_layout='it'),
+}
 
 # Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
