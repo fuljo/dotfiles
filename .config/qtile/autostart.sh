@@ -118,5 +118,5 @@ case "$XDG_SESSION_TYPE" in
         xss-lock --transfer-sleep-lock -- betterlockscreen -l -- --nofork &
         ;;
     wayland)
-        swayidle
+        swayidle &
 esac
