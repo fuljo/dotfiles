@@ -39,8 +39,13 @@ case "$XDG_SESSION_TYPE" in
         ;;
 esac
 
-# Redshift gamma correction
-gammastep &
+if [[ -x "$(command -v clight)" ]]; then
+    # Backlight calibration, screen/kbd dimming, redlight gamma correction
+    clight &
+else
+    # Redlight gamma correction
+    gammastep &
+fi
 
 # Dark mode toggler
 darkman run &
@@ -113,13 +118,5 @@ case "$XDG_SESSION_TYPE" in
         xss-lock --transfer-sleep-lock -- betterlockscreen -l -- --nofork &
         ;;
     wayland)
-        # TODO
-        # swayidle \
-        #     timeout 5 "qtile cmd-obj -o core -f hide_cursor" \
-        #     resume "qtile cmd-obj -o core -f unhide_cursor" \
-        #     timeout 300 "swayidle-laptop-dim" \
-        #     resume "light -I" \
-        #     timeout 600 "wlopm --off \*;swaylock -F -i ~/.cache/wallpaper --effect-blur 10x5 --clock --indicator" \
-        #     resume "wlopm --on \*" &
-        ;;
+        swayidle
 esac
