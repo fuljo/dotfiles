@@ -1,5 +1,9 @@
 # Use powerline
 USE_POWERLINE="true"
+# Has weird character width
+# Example:
+#    is not a diamond
+HAS_WIDECHARS="false"
 # Source manjaro-zsh-configuration
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
   source /usr/share/zsh/manjaro-zsh-config
@@ -12,11 +16,6 @@ fi
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-source /usr/bin/virtualenvwrapper.sh
-
 # Zoxide
 eval "$(zoxide init zsh)"
 
@@ -28,7 +27,6 @@ source /usr/share/fzf/completion.zsh
 ##########
 # Aliases #
 ###########
-
 alias ls="exa -lah --git --icons"
 alias cd="z"
 alias ..='cd ..'

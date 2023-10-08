@@ -136,14 +136,3 @@ ex ()
   fi
 }
 
-# Zoxide
-eval "$(zoxide init bash)"
-
-# Starship (prompt)
-eval "$(starship init bash)"
-
-# Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-source /usr/bin/virtualenvwrapper.sh
-
