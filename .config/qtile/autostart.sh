@@ -66,11 +66,6 @@ case "$XDG_SESSION_TYPE" in
         ;;
 esac
 
-# Mounting daemon
-if [[ -x "$(command -v pcmanfm)" ]]; then
-    pcmanfm -d &
-fi
-
 # KDE Wallet
 if [[ -x "/usr/lib/pam_kwallet_init" ]]; then
     /usr/lib/pam_kwallet_init &
