@@ -39,8 +39,12 @@ from libqtile.backend.wayland import InputConfig
 from libqtile.dgroups import simple_key_binder
 from libqtile.log_utils import logger
 
+
 mod = "mod4"
 terminal = guess_terminal()
+has_battery = \
+    Path('/sys/class/power_supply/BAT0/charge_full').exists() \
+    or Path('/sys/class/power_supply/BAT0/energy_full').exists()
 
 qtile_path = Path.home().joinpath(".config", "qtile")
 rofi_path = Path.home().joinpath(".config", "rofi", "bin")
@@ -543,7 +547,7 @@ screens = [
                 ),
                 widget.Net(
                     interface=None,
-                    format="{down} ↓↑ {up}",
+                    format="{down:>5.01f}{down_suffix:>2} ↓↑ {up:>5.01f}{up_suffix:>2}",
                     padding=5,
                     foreground=colors["green"],
                 ),
@@ -579,6 +583,27 @@ screens = [
                     padding=5,
                     foreground=colors["blue"],
                 ),
+                widget.Battery(
+                    battery=0,
+                    full_char="\uf240",
+                    charge_char="\uf376",
+                    discharge_char="\uf242",
+                    empty_char="\uf244",
+                    low_percentage=0.15,
+                    format="{char}",
+                    padding=5,
+                    foreground=colors["lime"],
+                    low_foreground=colors["red"],
+                ) if has_battery else widget.TextBox(),
+                widget.Battery(
+                    battery=0,
+                    low_percentage=0.15,
+                    notify_below=0.15,
+                    format="{percent:2.0}%",
+                    padding=5,
+                    foreground=colors["blue"],
+                    low_foreground=colors["red"],
+                ) if has_battery else widget.TextBox(),
                 make_separator(),
                 # Volume
                 make_icon(
